@@ -1,10 +1,17 @@
-// import ListingCard from "./ListingCard";
+import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
+function ListingsContainer({ listings, updateListing, deleteListing }) {
   return (
     <main>
       <ul className="cards">
-        {/* use the ListingCard component to display listings */}
+        {listings.map(listing => (
+          <ListingCard
+            key={listing.id}
+            {...listing}
+            updateListing={updateListing}
+            deleteListing={deleteListing}
+          />
+        ))}
       </ul>
     </main>
   );

@@ -1,17 +1,11 @@
-function Search() {
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log("submitted");
-  }
-
+function Search({ onSearch }) {
   return (
-    <form className="searchbar" onSubmit={handleSubmit}>
+    <form className="searchbar" onSubmit={(e) => e.preventDefault()}>
       <input
         type="text"
         id="search"
         placeholder="search free stuff"
-        value={""}
-        onChange={(e) => console.log(e.target.value)}
+        onChange={(e) => onSearch(e.target.value)}
       />
       <button type="submit">🔍</button>
     </form>
